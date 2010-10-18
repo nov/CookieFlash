@@ -33,7 +33,7 @@ Other key-value pairs in Hash are used as jGrowl options.
 ==Requirements
 
 * jquery.jgrowl.js
-* alert.js (Cerego custom)
+* alert.js (custom)
 * json2.js (only for legacy browsers which doesn't have native JSON support)
 
 == Reference:
