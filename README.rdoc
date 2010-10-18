@@ -1,0 +1,41 @@
+= CookieFlash
+
+Author:: nov matake
+Copyright:: Copyright (c) 2010 nov matake
+License:: MIT License
+
+== NOTE:
+
+flash[:notice] and flash[:error] are rendered by alert.js.
+You don't need to render flash messages in Rails views.
+It will make cache management much easier.
+
+== USAGE:
+
+Setup CookieFlash as below.
+
+  class ApplicationController < ActionController::Base
+    include CookieFlash
+    after_filter :flash_to_cookie
+  end
+
+Then put String or Hash into flash.
+When you use String, it works as Rails default.
+When you use Hash, "text" is required.
+Other key-value pairs in Hash are used as jGrowl options.
+
+== Example:
+
+  flash[:notice] = "Hello world!"
+  flash[:error]  = {:text => "Oops..", :sticky => true}
+  flash[:warn]   = {:text => "Very Important!!", :position => "center"}
+
+==Requirements
+
+* jquery.jgrowl.js
+* alert.js (Cerego custom)
+* json2.js (only for legacy browsers which doesn't have native JSON support)
+
+== Reference:
+
+jGrowl options: http://stanlemon.net/projects/jgrowl.html
